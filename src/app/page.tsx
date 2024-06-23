@@ -19,6 +19,11 @@ export default function Home() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!user) {
+      alert('User not authenticated');
+      return;
+    }
+
     const wasteType = (e.target as HTMLFormElement).wasteType.value;
     const quantity = (e.target as HTMLFormElement).quantity.value;
     const material = (e.target as HTMLFormElement).material.value;
