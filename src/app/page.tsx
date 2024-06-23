@@ -1,6 +1,6 @@
 "use client"; // Add this line at the top
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FormEvent } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
@@ -17,11 +17,11 @@ export default function Home() {
     }
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const wasteType = e.target.wasteType.value;
-    const quantity = e.target.quantity.value;
-    const material = e.target.material.value;
+    const wasteType = (e.target as HTMLFormElement).wasteType.value;
+    const quantity = (e.target as HTMLFormElement).quantity.value;
+    const material = (e.target as HTMLFormElement).material.value;
 
     const data = {
       user_id: user.id,
