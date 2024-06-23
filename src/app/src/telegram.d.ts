@@ -3,12 +3,14 @@ interface Window {
         WebApp: {
             ready: () => void;
             initDataUnsafe: {
-                user?: {
-                    id: number;
-                    first_name: string;
-                    photo_url: string;
-                };
+                user?: TelegramUser;
             };
         };
     };
+}
+
+interface TelegramUser {
+    id: number;
+    first_name: string;
+    photo_url: string;
 }
