@@ -4,8 +4,14 @@ import { useEffect, useState, FormEvent } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
+interface TelegramUser {
+  id: number;
+  first_name: string;
+  photo_url: string;
+}
+
 export default function Home() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<TelegramUser | null>(null);
 
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
