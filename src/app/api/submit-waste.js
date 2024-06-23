@@ -4,7 +4,7 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
 });
 
-export default async (req, res) => {
+const handler = async (req, res) => {
     if (req.method === 'POST') {
         const { user_id, wasteType, quantity, material, timestamp } = req.body;
         await pool.query(
@@ -16,3 +16,5 @@ export default async (req, res) => {
         res.status(405).json({ error: 'Method not allowed' });
     }
 };
+
+export default handler;

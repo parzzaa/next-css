@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -39,7 +40,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">Waste Management</h1>
         {user && (
             <div className="profile">
-              <img src={user.photo_url} alt="User Photo" className="w-16 h-16 rounded-full" />
+              <Image src={user.photo_url} alt="User Photo" width={64} height={64} className="rounded-full" />
               <p>{user.first_name}</p>
             </div>
         )}
