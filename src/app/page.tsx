@@ -36,6 +36,8 @@ export default function Home() {
 
     const data = {
       user_id: user.id,
+      first_name: user.first_name,
+      photo_url: user.photo_url,
       wasteType,
       quantity,
       material,
